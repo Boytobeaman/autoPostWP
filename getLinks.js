@@ -91,6 +91,9 @@ module.exports = {
             for (let websitesIndex = 0; websitesIndex < websites.length; websitesIndex++) {
                 if (url.parse(websites[websitesIndex], true).host != target_host) {
                     let selectedKeywords = getRandomArrValue(newDisorderedArr[index].keywords)
+                    if (obj.title == "") {
+                        obj.title = `${selectedKeywords} `
+                    }
                     element += `${pick_description} <a href="${websites[websitesIndex]}" target="_blank">${selectedKeywords}</a>,`
                     break
                 }
@@ -101,7 +104,7 @@ module.exports = {
     links: function (address,whole_cat_obj) {
         let obj = {}
         obj.title = ''
-        let content = this.internal(address, whole_cat_obj,obj) + this.outbound(address, whole_cat_obj);
+        let content = this.internal(address, whole_cat_obj,obj) + this.outbound(address, whole_cat_obj,obj);
         return { content: content, title: _.startCase(obj.title)}
     }
 };
