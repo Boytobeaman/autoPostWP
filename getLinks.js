@@ -76,7 +76,7 @@ module.exports = {
         }
         return element != "" ? prefix + element + suffix : element;
     },
-    outbound: function (address, whole_cat_obj) {
+    outbound: function (address, whole_cat_obj,obj) {
         let total_promote_cat = whole_cat_obj;
         var target_host = url.parse(address, true).host;
         var prefix = 'You can also buy ';
