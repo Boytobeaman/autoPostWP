@@ -32,7 +32,7 @@ MongoClient.connect(mongodb_url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("joinplastic");
     var CronJob = require('cron').CronJob;
-    new CronJob('00 */20 */8 * * *', function () {
+    new CronJob('00 */60 */8 * * *', function () {
         console.log('You will see this message every second');
         toPostWebsite.forEach(website=>{
             async function getDescriptions(total_promote_cat) {
