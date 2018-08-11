@@ -65,7 +65,6 @@ var foldingCrates = {
         "heavy duty collapsible crates",
         "rolling collapsible crate",
         "collapsible rolling crate",
-        "schiffmayer plastics corp collapsible crates",
         "collapsible crate for car trunk",
         "kis collapsible crate",
         "collapsible crates australia",

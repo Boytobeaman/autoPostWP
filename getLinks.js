@@ -82,22 +82,30 @@ module.exports = {
         var prefix = 'You can also buy ';
         var suffix = 'Welcome to our store!<br>';
         var element = "";
+        var linkNumber = 2;
+        var genLinkNumber = 0;
         var newDisorderedArr = disorganizeArr(total_promote_cat.concat());
         for (let index = 0; index < newDisorderedArr.length; index++) {
             var websites = disorganizeArr(newDisorderedArr[index].websites.concat());
             var descriptions = disorganizeArr(newDisorderedArr[index].descriptions);
             var pick_description = descriptions.splice(_.random(0, descriptions.length-1), 1)[0].description;
             pick_description = pick_description.replace(/\.\.\.$/, ".");
-            for (let websitesIndex = 0; websitesIndex < websites.length; websitesIndex++) {
-                if (url.parse(websites[websitesIndex], true).host != target_host) {
-                    let selectedKeywords = getRandomArrValue(newDisorderedArr[index].keywords)
-                    if (obj.title == "") {
-                        obj.title = `${selectedKeywords} `
+            if (genLinkNumber <= linkNumber) {
+                for (let websitesIndex = 0; websitesIndex < websites.length; websitesIndex++) {
+                    if (url.parse(websites[websitesIndex], true).host != target_host) {
+                        let selectedKeywords = getRandomArrValue(newDisorderedArr[index].keywords)
+                        if (obj.title == "") {
+                            obj.title = `${selectedKeywords} `
+                        }
+                        element += `${pick_description} <a href="${websites[websitesIndex]}" target="_blank">${selectedKeywords}</a>,`
+                        genLinkNumber++;
+                        break
                     }
-                    element += `${pick_description} <a href="${websites[websitesIndex]}" target="_blank">${selectedKeywords}</a>,`
-                    break
                 }
+            }else{
+                element = `${pick_description} + ${element}`
             }
+            
         }
         return element != "" ? prefix + element + suffix : element;
     },

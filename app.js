@@ -32,8 +32,8 @@ MongoClient.connect(mongodb_url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("joinplastic");
     var CronJob = require('cron').CronJob;
-    new CronJob('00 */60 */8 * * *', function () {
-        console.log('You will see this message every second');
+    new CronJob('00 */60 */9 * * *', function () {
+        console.log('You will see this message every ');
         toPostWebsite.forEach(website=>{
             async function getDescriptions(total_promote_cat) {
                 for (let cat of total_promote_cat) {
