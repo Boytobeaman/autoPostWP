@@ -82,7 +82,7 @@ module.exports = {
         var prefix = 'You can also buy ';
         var suffix = 'Welcome to our store!<br>';
         var element = "";
-        var linkNumber = 2;
+        var linkNumber = 1;
         var genLinkNumber = 0;
         var newDisorderedArr = disorganizeArr(total_promote_cat.concat());
         for (let index = 0; index < newDisorderedArr.length; index++) {
@@ -90,7 +90,7 @@ module.exports = {
             var descriptions = disorganizeArr(newDisorderedArr[index].descriptions);
             var pick_description = descriptions.splice(_.random(0, descriptions.length-1), 1)[0].description;
             pick_description = pick_description.replace(/\.\.\.$/, ".");
-            if (genLinkNumber <= linkNumber) {
+            if (genLinkNumber < linkNumber) {
                 for (let websitesIndex = 0; websitesIndex < websites.length; websitesIndex++) {
                     if (url.parse(websites[websitesIndex], true).host != target_host) {
                         let selectedKeywords = getRandomArrValue(newDisorderedArr[index].keywords)
