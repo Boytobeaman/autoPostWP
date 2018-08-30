@@ -3,7 +3,7 @@ var wordpress = require("wordpress");
 var _ = require('lodash');
 
 let proviteInfo = require("./toPostWebsiteInfo");
-let toPostWebsite = proviteInfo.toPostWebsite;
+let toPostWebsite = proviteInfo.toPostWebsiteInfo;
 // to get customize links for other sites
 // promotion category like folding/stacking/pallet box/moving dolly
 var total_promote_cat = [];
