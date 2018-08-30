@@ -2,7 +2,8 @@ var url = require('url');
 var wordpress = require("wordpress");
 var _ = require('lodash');
 
-let toPostWebsite = require("./toPostWebsiteInfo");
+let proviteInfo = require("./toPostWebsiteInfo");
+let toPostWebsite = proviteInfo.toPostWebsite;
 // to get customize links for other sites
 // promotion category like folding/stacking/pallet box/moving dolly
 var total_promote_cat = [];
@@ -26,7 +27,7 @@ total_promote_cat.push(movingdolly_OBJ)
 const getLinkStr = require('./getLinks');
 
 var MongoClient = require('mongodb').MongoClient;
-var mongodb_url = "mongodb://47.74.64.136:27017/";
+var mongodb_url = proviteInfo.mongodb_url;
 
 MongoClient.connect(mongodb_url, function (err, db) {
     if (err) throw err;
