@@ -79,7 +79,7 @@ module.exports = {
     outbound: function (address, whole_cat_obj,obj) {
         let total_promote_cat = whole_cat_obj;
         var target_host = url.parse(address, true).host;
-        var prefix = 'You can also buy ';
+        var prefix = '';
         var suffix = 'Welcome to our store!<br>';
         var element = "";
         var linkNumber = 1;
